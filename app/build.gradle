@@ -17,8 +17,50 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //Add by Jack begin
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+//    sourceSets {
+//        main {
+//            res.srcDirs = ['src/main/res', 'src/main/res/raw']
+//        }
+//    }
+    //Add by Jack end
+
+//    android {
+//        lintOptions {
+//            abortOnError false
+//        }
+//    }
+//
+//    lintOptions {
+//        abortOnError false
+//    }
+//
+//    sourceSets {
+//        main {
+//            res.srcDirs = ['src/main/res', 'src/main/res/raw']
+//        }
+//    }
+
 }
 
 dependencies {
+    //Add by Jack begin
+    implementation(name: 'MGLicenseManagerSDK-0.3.1', ext: 'aar')
+    implementation(name: 'MGFaceppSDK-0.5.2', ext: 'aar')
 
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation "com.android.support:appcompat-v7:${SupportLibraryVersion}"
+    implementation "com.android.support:appcompat-v7:${SupportLibraryVersion}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //Add by Jack end
 }
